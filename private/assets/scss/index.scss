@@ -1,0 +1,45 @@
+@import 'reseter';
+
+$testColor: red;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+body {
+  font-size: 16px;
+  font-family: Georgia, Verdana, sans-serif;
+
+  input[type="text"],
+  input[type="tel"],
+  textarea,
+  select{
+    display: block;
+  }
+
+  #container {
+
+    > header {
+
+      h1 {
+        text-align: center;
+      }
+    }
+
+    #main-section-wrapper {
+
+      #search-panel {
+        float: left;
+        width: 25%;
+      }
+
+      #main-section {
+        float: left;
+        width: 75%;
+      }
+    }
+  }
+}
