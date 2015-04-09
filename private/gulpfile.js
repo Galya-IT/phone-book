@@ -32,7 +32,7 @@ gulp.task('bundle-jsx', function () {
             extensions: ['.jsx'],
             paths: ['./app/']
         }))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(rename('app.js'))
         .pipe(gulp.dest(JsxDestPath));
 });
