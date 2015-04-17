@@ -14,7 +14,8 @@ var RadioOption = React.createClass({
         this.setState({isSelected: this.refs.input.getDOMNode().checked});
     },
     render: function () {
-        return <input ref="input" type="radio" name={this.props.groupName} value={this.props.value}
+        return <input ref="input" type="radio" name={this.props.groupName} id={this.props.childId}
+                      value={this.props.value}
                       defaultChecked={this.state.isSelected} onChange={this.handleChange}/>;
     }
 });

@@ -13,26 +13,28 @@ var SearchResultsPanel = React.createClass({
     render: function () {
         var noDataView = <div>No contacts.</div>;
 
-        var tableView = <table id="search-results">
-            <caption>Search Results</caption>
-            <thead>
-            <tr>
-                <th>Phone number</th>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Gender</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-            {
-                this.props.contacts.map(function (contact) {
-                    return <SearchResultTableRow key={contact.phone} contact={contact}/>
-                })
-            }
-            </tbody>
-        </table>;
+        var tableView = <section id="search-results-panel">
+            <table id="search-results-grid">
+                <caption>Search Results</caption>
+                <thead>
+                <tr>
+                    <th>Phone number</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Gender</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {
+                    this.props.contacts.map(function (contact) {
+                        return <SearchResultTableRow key={contact.phone} contact={contact}/>
+                    })
+                }
+                </tbody>
+            </table>
+        </section>;
 
         return (CommonUtils.isEmpty(this.props.contacts)) ? noDataView : tableView;
     }

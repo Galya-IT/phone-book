@@ -1,6 +1,6 @@
 @import 'reseter';
 
-$testColor: red;
+$formWidth: 18em;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -9,36 +9,207 @@ $testColor: red;
   border-radius: $radius;
 }
 
+@mixin text-outline($length, $blur, $color) {
+  -webkit-text-stroke: $length $color;
+  text-shadow: $length $length $blur $color,
+          (-$length) (-$length) $blur $color,
+          (-$length) $length $blur $color,
+  $length $length $blur $color;
+}
+
+@mixin box-shadow($hShadow, $vShadow, $blur, $color) {
+  -webkit-box-shadow: $hShadow $vShadow $blur $color;
+  -moz-box-shadow: $hShadow $vShadow $blur $color;
+  box-shadow: $hShadow $vShadow $blur $color;
+}
+
+@mixin transition-all($delay) {
+  -webkit-transition: all $delay ease;
+  -moz-transition: all $delay ease;
+  -o-transition: all $delay ease;
+  transition: all $delay ease;
+}
+
+@mixin flex-center() {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+@mixin box-sizing() {
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.section-heading {
+  margin-bottom: 0.4em;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.form-element-size {
+  width: $formWidth;
+  margin: 0 auto 0.8em auto;
+  padding: 0.6em;
+  @include box-sizing();
+}
+
 body {
   font-size: 16px;
   font-family: Georgia, Verdana, sans-serif;
+  background-color: #F0F0F0;
 
   input[type="text"],
   input[type="tel"],
   textarea,
-  select{
+  select {
     display: block;
+    @extend .form-element-size;
+    border: 1px solid #ccc;
+    @include border-radius(10px);
+
+    &:focus {
+      border-color: #FF9960;
+    }
+  }
+
+  #gender-selector {
+    @extend .form-element-size;
+    text-align: center;
+  }
+
+  header > h3 {
+    @extend .section-heading;
   }
 
   #container {
 
     > header {
+      position: relative;
+      width: 100%;
+      background-color: #424242;
+      padding: 1em 0;
+      @include box-shadow(0px, 5px, 5px, #000);
+      z-index: 100;
 
       h1 {
         text-align: center;
+        font-size: 1.8em;
+        letter-spacing: 0.1em;
+        color: #fff;
+        cursor: default;
+        @include text-outline(1px, 2px, #000);
       }
     }
 
     #main-section-wrapper {
+      width: 100%;
 
-      #search-panel {
-        float: left;
-        width: 25%;
+      > header {
+        position: relative;
+        width: 100%;
+        z-index: 1;
+
+        > nav {
+          width: 100%;
+          padding: 0.8em 0 0.6em;
+          text-align: center;
+          background-color: #C9E2FF;
+          border-bottom: 1px solid #000;
+          margin-bottom: 1em;
+
+          button {
+            background-color: #fff;
+            box-shadow: none;
+            padding: 0.6em 0.8em;
+            @include transition-all(400ms);
+            border: 1px solid #000;
+            font-weight: bold;
+
+            &:hover {
+              background-color: #FF9960;
+              border-color: #FF9960;
+              cursor: pointer;
+            }
+          }
+        }
       }
 
-      #main-section {
-        float: left;
-        width: 75%;
+      #search-section {
+        width: 100%;
+
+        #search-filter-panel {
+          float: left;
+          width: 20%;
+          margin: 0 5% 0 1%;
+          padding: 1em 2%;
+          min-width: $formWidth;
+          background-color: #FFB78F;
+          /*@include border-radius(15px);
+          @include box-shadow(1px, 1px, 5px, #000);*/
+        }
+
+        #search-results-panel {
+          float: left;
+          width: 60%;
+          padding: 0 5%;
+          border-left: 1px solid #000;
+          min-height: 300px;
+
+          table#search-results-grid {
+            border-collapse: collapse;
+            border: 1px solid #000;
+
+            td, th {
+              padding: 0.8em 1em;
+              border-left: 1px solid #000;
+              border-right: 1px solid #000;
+            }
+
+            caption {
+              @extend .section-heading;
+            }
+
+            tbody {
+              tr {
+                &:nth-child(odd) {
+                  background-color: #DAE3ED;
+                }
+                /*                &:nth-child(even) {
+                                  background-color: #008B8B;
+                                }*/
+              }
+            }
+          }
+        }
+      }
+
+      #add-edit-form {
+        display: block;
+        width: $formWidth;
+        margin: 0 auto;
+        text-align: center;
+
+        textarea {
+          max-width: $formWidth;
+        }
+
+        #btn-save {
+
+        }
       }
     }
   }

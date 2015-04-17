@@ -15,7 +15,7 @@ var AddNewButton = React.createClass({
     },
     render: function () {
         return (
-            <button type="button" id="btn-add" onClick={this.handleClick}>Add new</button>
+            <button type="button" id="btn-add" onClick={this.handleClick}>Add new contact</button>
         );
     }
 });

@@ -38,8 +38,8 @@ var GenderRadioGroup = React.createClass({
                     this.props.OPTIONS.map(function (option) {
                         var isCurrentOptionSelected = (option === chosenOption);
                         return <span key={option}>
-                                <label htmlFor="{option}">{option}</label>
-                                <RadioOption groupName="gender" value={option} isSelected={isCurrentOptionSelected}/>
+                                <label htmlFor={option}>{option}</label>
+                                <RadioOption groupName="gender" childId={option} value={option} isSelected={isCurrentOptionSelected}/>
                             </span>
                     })
                 }

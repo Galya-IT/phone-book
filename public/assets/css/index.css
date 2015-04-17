@@ -71,16 +71,114 @@ hr {
 input, select {
   vertical-align: middle; }
 
+.section-heading, body header > h3, body #container #main-section-wrapper #search-section #search-results-panel table#search-results-grid caption {
+  margin-bottom: 0.4em;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em; }
+
+.form-element-size, body input[type="text"], body input[type="tel"], body textarea, body select, body #gender-selector {
+  width: 18em;
+  margin: 0 auto 0.8em auto;
+  padding: 0.6em;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
 body {
   font-size: 16px;
-  font-family: Georgia, Verdana, sans-serif; }
+  font-family: Georgia, Verdana, sans-serif;
+  background-color: #F0F0F0; }
   body input[type="text"], body input[type="tel"], body textarea, body select {
-    display: block; }
-  body #container > header h1 {
+    display: block;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px; }
+    body input[type="text"]:focus, body input[type="tel"]:focus, body textarea:focus, body select:focus {
+      border-color: #FF9960; }
+  body #gender-selector {
     text-align: center; }
-  body #container #main-section-wrapper #search-panel {
-    float: left;
-    width: 25%; }
-  body #container #main-section-wrapper #main-section {
-    float: left;
-    width: 75%; }
+  body #container > header {
+    position: relative;
+    width: 100%;
+    background-color: #424242;
+    padding: 1em 0;
+    -webkit-box-shadow: 0px 5px 5px #000;
+    -moz-box-shadow: 0px 5px 5px #000;
+    box-shadow: 0px 5px 5px #000;
+    z-index: 100; }
+    body #container > header h1 {
+      text-align: center;
+      font-size: 1.8em;
+      letter-spacing: 0.1em;
+      color: #fff;
+      cursor: default;
+      -webkit-text-stroke: 1px #000;
+      text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, -1px 1px 2px #000, 1px 1px 2px #000; }
+  body #container #main-section-wrapper {
+    width: 100%; }
+    body #container #main-section-wrapper > header {
+      position: relative;
+      width: 100%;
+      z-index: 1; }
+      body #container #main-section-wrapper > header > nav {
+        width: 100%;
+        padding: 0.8em 0 0.6em;
+        text-align: center;
+        background-color: #C9E2FF;
+        border-bottom: 1px solid #000;
+        margin-bottom: 1em; }
+        body #container #main-section-wrapper > header > nav button {
+          background-color: #fff;
+          box-shadow: none;
+          padding: 0.6em 0.8em;
+          -webkit-transition: all 400ms ease;
+          -moz-transition: all 400ms ease;
+          -o-transition: all 400ms ease;
+          transition: all 400ms ease;
+          border: 1px solid #000;
+          font-weight: bold; }
+          body #container #main-section-wrapper > header > nav button:hover {
+            background-color: #FF9960;
+            border-color: #FF9960;
+            cursor: pointer; }
+    body #container #main-section-wrapper #search-section {
+      width: 100%; }
+      body #container #main-section-wrapper #search-section #search-filter-panel {
+        float: left;
+        width: 20%;
+        margin: 0 5% 0 1%;
+        padding: 1em 2%;
+        min-width: 18em;
+        background-color: #FFB78F;
+        /*@include border-radius(15px);
+          @include box-shadow(1px, 1px, 5px, #000);*/ }
+      body #container #main-section-wrapper #search-section #search-results-panel {
+        float: left;
+        width: 60%;
+        padding: 0 5%;
+        border-left: 1px solid #000;
+        min-height: 300px; }
+        body #container #main-section-wrapper #search-section #search-results-panel table#search-results-grid {
+          border-collapse: collapse;
+          border: 1px solid #000; }
+          body #container #main-section-wrapper #search-section #search-results-panel table#search-results-grid td, body #container #main-section-wrapper #search-section #search-results-panel table#search-results-grid th {
+            padding: 0.8em 1em;
+            border-left: 1px solid #000;
+            border-right: 1px solid #000; }
+          body #container #main-section-wrapper #search-section #search-results-panel table#search-results-grid tbody tr {
+            /*                &:nth-child(even) {
+                                  background-color: #008B8B;
+                                }*/ }
+            body #container #main-section-wrapper #search-section #search-results-panel table#search-results-grid tbody tr:nth-child(odd) {
+              background-color: #DAE3ED; }
+    body #container #main-section-wrapper #add-edit-form {
+      display: block;
+      width: 18em;
+      margin: 0 auto;
+      text-align: center; }
+      body #container #main-section-wrapper #add-edit-form textarea {
+        max-width: 18em; }

@@ -107,9 +107,11 @@ var AddEditContactPage = React.createClass({
         return (
             <section id="main-section-wrapper">
                 <header id="add-edit-heading">
-                    <h4>{pageTitle}</h4>
+                    <nav>
+                        <HomeButton />
+                    </nav>
+                    <h3>{pageTitle}</h3>
                 </header>
-                <HomeButton />
 
                 <form id="add-edit-form">
                     <input ref="phone" id="input-phone" pattern={PhoneEntryValidator.PHONE_PATTERN} type="tel"

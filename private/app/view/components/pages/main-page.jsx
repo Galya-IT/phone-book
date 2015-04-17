@@ -13,7 +13,11 @@ var MainPage = React.createClass({
     render: function () {
         return (
             <section id="main-section-wrapper">
-                <AddNewButton />
+                <header>
+                    <nav>
+                        <AddNewButton />
+                    </nav>
+                </header>
                 <SearchPanel />
             </section>
         );

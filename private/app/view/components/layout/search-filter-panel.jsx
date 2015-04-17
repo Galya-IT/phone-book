@@ -16,7 +16,7 @@ var SignSearchFilter = require('./../filters/sign-search-filter.jsx');
 var SearchFilterPanel = React.createClass({
     render: function () {
         return (
-            <aside id="search-panel" onChange={this.handleChange}>
+            <aside id="search-filter-panel" onChange={this.handleChange}>
                 <header>
                     <h3>Search filter</h3>
                 </header>
